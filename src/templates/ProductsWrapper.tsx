@@ -29,7 +29,7 @@ export const getHeadConfig: GetHeadConfig<
   };
 };
 
-const Static: Template<TemplateRenderProps> = ({
+const ProductsWrapper: Template<TemplateRenderProps> = ({
   document,
 }: TemplateRenderProps) => {
   const { _site } = document;
@@ -74,4 +74,4 @@ const Static: Template<TemplateRenderProps> = ({
   );
 };
 
-export default Static;
+export default ProductsWrapper;

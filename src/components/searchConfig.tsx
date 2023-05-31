@@ -1,11 +1,7 @@
-import { SandboxEndpoints } from "@yext/search-headless-react";
-
 const searchConfig = {
-  apiKey: import.meta.env.API_KEY,
-  experienceKey: import.meta.env.EXP_KEY,
+  apiKey: "2d586133bf1ad30c089c5869ca2376cf",
+  experienceKey: "answers",
   locale: "en",
-  verticalKey: "restaurants",
-  endpoints: SandboxEndpoints,
 };
 
 export default searchConfig;
