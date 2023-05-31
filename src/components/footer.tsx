@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const Footer = () => {
+const Footer = ({ _site }: any) => {
   return (
     <footer className="">
       <div className="flex flex-col flex-wrap justify-center p-5 md:flex-row">

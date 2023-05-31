@@ -17,7 +17,7 @@ const links: Link[] = [
   },
 ];
 
-const Header = () => {
+const Header = ({ _site }: any) => {
   const linkDoms = links.map((link) => (
     <div key={link.label}>
       <a href={link.url} target="_blank" rel="noreferrer">
