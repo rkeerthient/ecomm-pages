@@ -2,47 +2,36 @@
  * This is an example of how to create a static template that uses getStaticProps to retrieve data.
  */
 import * as React from "react";
-import { fetch } from "@yext/pages/util";
 import "../index.css";
 import {
   Template,
   GetPath,
-  TransformProps,
   TemplateConfig,
-  TemplateProps,
   TemplateRenderProps,
+  GetHeadConfig,
+  HeadConfig,
 } from "@yext/pages";
 import PageLayout from "../components/page-layout";
-import Card from "../components/card";
-import { ExternalImage } from "../types/ExternalImage";
 
 export const config: TemplateConfig = {};
-type ExternalImageData = TemplateProps & { externalImage: ExternalImage };
 
-export const transformProps: TransformProps<ExternalImageData> = async (
-  data
-) => {
-  const url = import.meta.env.YEXT_PUBLIC_EXTERNAL_IMAGE_API_BASE_URL + "/2";
-  const externalImage = (await fetch(url).then((res: any) =>
-    res.json()
-  )) as ExternalImage;
-  return { ...data, externalImage };
+export const getPath: GetPath<TemplateRenderProps> = () => {
+  return `products`;
 };
 
-export const getPath: GetPath<ExternalImageData> = () => {
-  return `index.html`;
+export const getHeadConfig: GetHeadConfig<
+  TemplateRenderProps
+> = (): HeadConfig => {
+  return {
+    title: "Ecomm | Products",
+    charset: "UTF-8",
+    viewport: "width=device-width, initial-scale=1",
+  };
 };
 
-type ExternalImageRenderData = TemplateRenderProps & {
-  externalImage: ExternalImage;
-};
-
-const Static: Template<ExternalImageRenderData> = ({
-  relativePrefixToRoot,
-  path,
+const Static: Template<TemplateRenderProps> = ({
   document,
-  externalImage,
-}) => {
+}: TemplateRenderProps) => {
   const { _site } = document;
 
   return (
@@ -78,9 +67,6 @@ const Static: Template<ExternalImageRenderData> = ({
               nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
               voluptas nulla pariatur?
             </p>
-            <div>
-              <Card {...externalImage} />
-            </div>
           </div>
         </div>
       </PageLayout>
