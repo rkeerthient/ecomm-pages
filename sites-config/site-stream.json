@@ -1,10 +1,10 @@
 {
   "$id": "site-entity",
   "filter": {
-    "entityIds": ["7089236598532783488"]
+    "entityIds": ["3807735308993921690"]
   },
   "source": "knowledgeGraph",
-  "fields": ["name"],
+  "fields": ["logo"],
   "localization": {
     "locales": ["en"],
     "primary": false

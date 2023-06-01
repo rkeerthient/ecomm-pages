@@ -13,26 +13,26 @@ import {
 } from "@yext/pages";
 import PageLayout from "../components/page-layout";
 import SearchResults from "../components/SearchResults";
-import ProductCard from "../components/Cards/ProductCard";
+import FAQCard from "../components/Cards/FAQCard";
 
 export const config: TemplateConfig = {
-  name: "products",
+  name: "faqs",
 };
 export const getPath: GetPath<TemplateRenderProps> = () => {
-  return `products`;
+  return `faqs`;
 };
 
 export const getHeadConfig: GetHeadConfig<
   TemplateRenderProps
 > = (): HeadConfig => {
   return {
-    title: "Ecomm | Products",
+    title: "Ecomm | FAQs",
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
   };
 };
 
-const ProductsWrapper: Template<TemplateRenderProps> = ({
+const FAQsWrapper: Template<TemplateRenderProps> = ({
   document,
 }: TemplateRenderProps) => {
   const { _site } = document;
@@ -42,9 +42,9 @@ const ProductsWrapper: Template<TemplateRenderProps> = ({
       <PageLayout _site={_site}>
         <div className="centered-container">
           <SearchResults
-            verticalKey="products"
-            inpClasses={"grid grid-cols-3 gap-6 max-w-screen-xl"}
-            cardType={ProductCard}
+            verticalKey="faqs"
+            inpClasses={"max-w-screen-xl"}
+            cardType={FAQCard}
           ></SearchResults>
         </div>
       </PageLayout>
@@ -52,4 +52,4 @@ const ProductsWrapper: Template<TemplateRenderProps> = ({
   );
 };
 
-export default ProductsWrapper;
+export default FAQsWrapper;

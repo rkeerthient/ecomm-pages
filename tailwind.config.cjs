@@ -17,6 +17,11 @@ module.exports = {
         neutral: "var(--neutral-color, #4b5563)",
         "neutral-light": "var(--neutral-color-light, #9ca3af)",
         "neutral-dark": "var(--neutral-color-dark, #1f2937)",
+        "button-price-color": "#ab7a5f",
+        "hover-button-color": "#c5a491",
+        "hover-text-color": "#453227",
+        "heading-text-color": "#795744",
+        "faq-text-color": "#324d67",
       },
       borderRadius: {
         cta: "var(--cta-border-radius, 1rem)",

@@ -1,50 +1,47 @@
 import * as React from "react";
-import Cta from "../components/cta";
-
-type Link = {
-  label: string;
-  url: string;
-};
-
-const links: Link[] = [
-  {
-    label: "Home",
-    url: "/",
-  },
-  {
-    label: "About",
-    url: "/turtlehead-tacos",
-  },
-];
+import NavLinks from "./NavLinks";
+import CartIcon from "./CartIcon";
+import { SearchBar } from "@yext/search-ui-react";
+import { BsSearch } from "react-icons/bs";
+import { useState } from "react";
 
 const Header = ({ _site }: any) => {
-  const linkDoms = links.map((link) => (
-    <div key={link.label}>
-      <a href={link.url} target="_blank" rel="noreferrer">
-        {link.label}
-      </a>
-    </div>
-  ));
-
+  const { logo } = _site;
+  const [showSearchBar, setShowSearchBar] = useState(false);
   return (
     <>
       <div className="centered-container">
-        <nav className="py-6 flex items-center justify-between">
-          <img
-            src="https://cdn.fs.brandfolder.com/cache=expiry:604800/deY3VGFpSjC761Abjbfc"
-            width="50"
-            height="50"
-          ></img>
-          <div className="text-2xl font-semibold">Turtlehead Tacos</div>
-          <div className="flex gap-x-10 text-lg font-semibold">{linkDoms}</div>
-          <div className="space-x-5">
-            <Cta buttonText="Order Pickup" url="#" style="primary-cta"></Cta>
-            <Cta
-              buttonText="Order Delivery"
-              url="#"
-              style="secondary-cta"
-            ></Cta>
+        <nav className="flex items-center justify-between">
+          <div className="flex gap-2 items-center">
+            <img src={logo?.image.url} width={"130"}></img>
+            <div className="flex gap-x-10 text-lg font-light">
+              <NavLinks />
+            </div>
           </div>
+          <div
+            className={`flex-1 px-3 mr-0 ${
+              !showSearchBar && "flex justify-end"
+            }`}
+          >
+            {showSearchBar ? (
+              <div
+                className={`transition duration-500 ${
+                  showSearchBar
+                    ? " transform scale-100 flex-1 opacity-100 "
+                    : "opacity-0 scale-0"
+                }`}
+              >
+                <SearchBar customCssClasses={{ searchBarContainer: "mb-0" }} />
+              </div>
+            ) : (
+              <BsSearch
+                className="w-5 h-5"
+                onClick={() => setShowSearchBar(true)}
+              />
+            )}
+          </div>
+
+          <CartIcon />
         </nav>
       </div>
     </>
