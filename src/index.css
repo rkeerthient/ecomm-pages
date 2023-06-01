@@ -99,3 +99,7 @@
 .slick-slider .slick-slide {
   padding: 0 15px;
 }
+
+.mapboxgl-popup-close-button {
+  right: 0.75em !important;
+}
