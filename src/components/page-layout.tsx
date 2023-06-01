@@ -14,8 +14,6 @@ export interface PageLayoutProps {
 }
 const searcher = provideHeadless({ ...searchConfig });
 const PageLayout = ({ children, _site }: PageLayoutProps) => {
-  console.log(JSON.stringify(_site));
-
   return (
     <SearchHeadlessProvider searcher={searcher}>
       <div className="min-h-screen">
