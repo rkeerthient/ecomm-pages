@@ -69,7 +69,7 @@ const MyComponent: React.FC = () => {
 
   return (
     <>
-      {priceValues.length == 2 && range.length == 2 ? (
+      {priceValues.length == 2 && range.length == 2 && (
         <>
           <div className="mb-4 font-bold">Price range</div>
           <div
@@ -135,8 +135,6 @@ const MyComponent: React.FC = () => {
             </div>
           </div>
         </>
-      ) : (
-        <Loader />
       )}
     </>
   );
