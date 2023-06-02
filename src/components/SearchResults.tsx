@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { SortDropdown } from "./SortDropdown";
 import StoreLocator from "./StoreLocator";
 import Loader from "./Loader";
+import MyComponent from "./MyComponent";
 type SearchInputs = {
   verticalKey?: string;
   inpClasses: string;
@@ -44,6 +45,7 @@ const SearchResults = ({
           ) : (
             <div className="flex">
               <div className="w-64 shrink-0 mr-5 mt-4">
+                <MyComponent></MyComponent>
                 <StandardFacets />
               </div>
               <div className="flex-grow">
