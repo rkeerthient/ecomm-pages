@@ -7,10 +7,11 @@ import {
 } from "@yext/search-headless-react";
 import * as React from "react";
 import { useEffect, useState } from "react";
+import Loader from "./Loader";
 
 const MyComponent: React.FC = () => {
-  const [priceValues, setPriceValues] = useState<number[]>([0, 100]);
-
+  const [priceValues, setPriceValues] = useState<number[]>([]);
+  const [range, setRange] = useState<number[]>([]);
   const answersActions = useSearchActions();
   const sortOpt: { label: string; sortBy: SortBy }[] = [
     {
@@ -30,39 +31,45 @@ const MyComponent: React.FC = () => {
       },
     },
   ];
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await Promise.all([
-          (answersActions.setSortBys([sortOpt[0].sortBy]),
-          answersActions
-            .executeVerticalQuery()
-            .then((res: any) =>
-              setPriceValues((prev: any) => [
-                prev[0],
-                Number(res.verticalResults.results[0].rawData.price.value),
-              ])
-            )),
-          (answersActions.setSortBys([sortOpt[1].sortBy]),
-          answersActions
-            .executeVerticalQuery()
-            .then((res: any) =>
-              setPriceValues((prev: any) => [
-                Number(res.verticalResults.results[0].rawData.price.value),
-                prev[1],
-              ])
-            )),
+        const results = await Promise.all([
+          answersActions.setSortBys([sortOpt[0].sortBy]),
+          answersActions.executeVerticalQuery(),
+          answersActions.setSortBys([sortOpt[1].sortBy]),
+          answersActions.executeVerticalQuery(),
         ]);
+
+        const validResults = results.filter(
+          (result) => result !== undefined
+        ) as any[];
+
+        const minPrice = Number(
+          validResults[1].verticalResults.results[0].rawData.price.value
+        );
+        const maxPrice = Number(
+          validResults[0].verticalResults.results[0].rawData.price.value
+        );
+
+        setPriceValues([minPrice, maxPrice]);
+        setRange([minPrice, maxPrice]);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
+
     fetchData();
   }, []);
 
+  const handlePriceChange = (event: any, newValue: number | number[]) => {
+    setPriceValues(newValue as number[]);
+  };
+
   return (
     <>
-      {priceValues && (
+      {priceValues.length == 2 && range.length == 2 ? (
         <>
           <div className="mb-4 font-bold">Price range</div>
           <div
@@ -74,9 +81,9 @@ const MyComponent: React.FC = () => {
           >
             <Slider
               value={priceValues}
-              min={priceValues[0]}
-              max={priceValues[1]}
-              //   onChange={rangeSelector}
+              min={range[0]}
+              max={range[1]}
+              onChange={handlePriceChange}
               valueLabelDisplay="auto"
             />
             <div
@@ -128,6 +135,8 @@ const MyComponent: React.FC = () => {
             </div>
           </div>
         </>
+      ) : (
+        <Loader />
       )}
     </>
   );
