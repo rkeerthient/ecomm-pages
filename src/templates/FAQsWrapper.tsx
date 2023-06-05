@@ -12,8 +12,8 @@ import {
   HeadConfig,
 } from "@yext/pages";
 import PageLayout from "../components/page-layout";
-import SearchResults from "../components/SearchResults";
 import FAQCard from "../components/Cards/FAQCard";
+import FAQsPage from "../Pages/FAQsPage";
 
 export const config: TemplateConfig = {
   name: "faqs",
@@ -41,11 +41,7 @@ const FAQsWrapper: Template<TemplateRenderProps> = ({
     <>
       <PageLayout _site={_site}>
         <div className="centered-container">
-          <SearchResults
-            verticalKey="faqs"
-            inpClasses={"max-w-screen-xl"}
-            cardType={FAQCard}
-          ></SearchResults>
+          <FAQsPage></FAQsPage>
         </div>
       </PageLayout>
     </>

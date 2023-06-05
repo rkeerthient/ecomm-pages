@@ -13,8 +13,7 @@ import {
 import PageLayout from "../components/page-layout";
 import { provideHeadless } from "@yext/search-headless-react";
 import searchConfig from "../components/searchConfig";
-import SearchResults from "../components/SearchResults";
-import LocationCard from "../components/Cards/LocationCard";
+import LocationsPage from "../Pages/LocationsPage";
 
 export const getPath: GetPath<TemplateProps> = () => {
   return `locations`;
@@ -56,12 +55,7 @@ const Locator: Template<TemplateRenderProps> = ({
   return (
     <PageLayout _site={_site}>
       <div className="centered-container">
-        <SearchResults
-          verticalKey="locations"
-          inpClasses={"grid grid-cols-3 gap-6 max-w-screen-xl"}
-          cardType={LocationCard}
-          isLocationType={true}
-        ></SearchResults>
+        <LocationsPage></LocationsPage>
       </div>
     </PageLayout>
   );

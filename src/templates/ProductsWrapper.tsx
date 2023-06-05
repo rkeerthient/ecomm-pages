@@ -12,8 +12,7 @@ import {
   HeadConfig,
 } from "@yext/pages";
 import PageLayout from "../components/page-layout";
-import SearchResults from "../components/SearchResults";
-import ProductCard from "../components/Cards/ProductCard";
+import ProductsPage from "../Pages/ProductsPage";
 
 export const config: TemplateConfig = {
   name: "products",
@@ -41,11 +40,7 @@ const ProductsWrapper: Template<TemplateRenderProps> = ({
     <>
       <PageLayout _site={_site}>
         <div className="centered-container">
-          <SearchResults
-            verticalKey="products"
-            inpClasses={"grid grid-cols-3 gap-6 max-w-screen-xl"}
-            cardType={ProductCard}
-          ></SearchResults>
+          <ProductsPage></ProductsPage>
         </div>
       </PageLayout>
     </>
