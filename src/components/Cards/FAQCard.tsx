@@ -12,7 +12,7 @@ const FAQCard = (props: CardProps<Faq>): JSX.Element => {
     <div className="w-full border border-gray-300 p-4 my-4 rounded-md">
       <div className="text-xl">
         <div onClick={() => setIsActive(!isActive)}>
-          <div className="text-heading-text-color text-2xl hover:cursor-pointer">
+          <div className="text-primary-text-color text-2xl hover:cursor-pointer">
             <span>{result.name}</span>
             <span style={{ float: "right" }}>{isActive ? "-" : "+"}</span>
           </div>

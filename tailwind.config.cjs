@@ -20,7 +20,7 @@ module.exports = {
         "button-price-color": "#ab7a5f",
         "hover-button-color": "#c5a491",
         "hover-text-color": "#453227",
-        "heading-text-color": "#795744",
+        "primary-text-color": "#ab7a5f",
         "faq-text-color": "#324d67",
       },
       borderRadius: {

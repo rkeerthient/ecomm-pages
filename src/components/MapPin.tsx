@@ -20,12 +20,9 @@ const transformToMapboxCoord = (
 const getLocationHTML = (location: Location) => {
   const address = location.address;
   const html = (
-    <div className="p-2">
-      <a
-        className="font-bold text-brand-primary outline-none"
-        href={location.landingPageUrl}
-      >
-        {location.name || "GNC"}
+    <div className="p-2 text-primary-text-color ">
+      <a className="font-medium  outline-none" href={location.landingPageUrl}>
+        {location.name || "E-comm"}
       </a>
       <p>{`${address.city}, ${address.region}`}</p>
       <img
@@ -75,7 +72,7 @@ const MapPin: PinComponent<Location> = ({
 
   return (
     <button onClick={handleClick}>
-      <IoLocationSharp className="text-brand-cta" size={30} />
+      <IoLocationSharp className="!text-primary-text-color" size={30} />
     </button>
   );
 };

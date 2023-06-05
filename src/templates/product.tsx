@@ -164,7 +164,7 @@ const Location: Template<TemplateRenderProps> = ({ document }) => {
           </div>
           <div className="py-20 w-1/2 leading-6">
             <h2 className="text-4xl font-light text-black mb-3">{name}</h2>
-            <h5 className="text-xl text-button-price-color mb-3">{c_price}</h5>
+            <h5 className="text-xl text-primary-text-color mb-3">{c_price}</h5>
             <p className="leading-8  mb-5">{c_productDescription}</p>
             {c_department && (
               <p className="capitalize grid grid-cols-2 w-2/4 mb-5 ">

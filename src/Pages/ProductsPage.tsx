@@ -1,7 +1,10 @@
 import { Divider } from "@mui/material";
 import {
+  Direction,
   Matcher,
   SelectableStaticFilter,
+  SortBy,
+  SortType,
   useSearchActions,
 } from "@yext/search-headless-react";
 import {
@@ -26,6 +29,48 @@ const ProductsPage = () => {
     searchActions.setVertical("products");
     searchActions.executeVerticalQuery().then(() => setLoading(false));
   }, []);
+
+  const sortConfig: Record<string, { label: string; sortBy: SortBy }> = {
+    price_desc: {
+      label: "Price: High to Low",
+      sortBy: {
+        field: "price.value",
+        direction: Direction.Descending,
+        type: SortType.Field,
+      },
+    },
+    price_asc: {
+      label: "Price: Low to High",
+      sortBy: {
+        field: "price.value",
+        direction: Direction.Ascending,
+        type: SortType.Field,
+      },
+    },
+    alpha_asc: {
+      label: "Name: A-Z",
+      sortBy: {
+        field: "name",
+        direction: Direction.Ascending,
+        type: SortType.Field,
+      },
+    },
+    alpha_desc: {
+      label: "Name: Z-A",
+      sortBy: {
+        field: "name",
+        direction: Direction.Descending,
+        type: SortType.Field,
+      },
+    },
+    relevance: {
+      label: "Relevance",
+      sortBy: {
+        type: SortType.Relevance,
+      },
+    },
+  };
+
   const handleSliderChange = (priceValues: React.SyntheticEvent[]) => {
     const selectedFilters: SelectableStaticFilter[] = [];
     if (priceValues[0] && priceValues[1]) {
@@ -68,7 +113,7 @@ const ProductsPage = () => {
                   customCssClasses={{ resultsCountContainer: "mb-0" }}
                 />
                 <hr className="flex-1" />
-                <SortDropdown />
+                <SortDropdown sortConfig={sortConfig} />
               </div>
               <AppliedFilters />
             </div>

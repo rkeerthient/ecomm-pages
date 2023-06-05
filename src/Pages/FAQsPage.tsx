@@ -1,4 +1,9 @@
-import { useSearchActions } from "@yext/search-headless-react";
+import {
+  Direction,
+  SortBy,
+  SortType,
+  useSearchActions,
+} from "@yext/search-headless-react";
 import {
   StandardFacets,
   ResultsCount,
@@ -16,6 +21,31 @@ import FAQCard from "../components/Cards/FAQCard";
 const FAQsPage = () => {
   const searchActions = useSearchActions();
   const [loading, setLoading] = React.useState(true);
+  const sortConfig: Record<string, { label: string; sortBy: SortBy }> = {
+    alpha_asc: {
+      label: "Name: A-Z",
+      sortBy: {
+        field: "name",
+        direction: Direction.Ascending,
+        type: SortType.Field,
+      },
+    },
+    alpha_desc: {
+      label: "Name: Z-A",
+      sortBy: {
+        field: "name",
+        direction: Direction.Descending,
+        type: SortType.Field,
+      },
+    },
+    relevance: {
+      label: "Relevance",
+      sortBy: {
+        type: SortType.Relevance,
+      },
+    },
+  };
+
   useEffect(() => {
     setLoading(true);
     searchActions.setVertical("faqs");
@@ -38,7 +68,7 @@ const FAQsPage = () => {
                   customCssClasses={{ resultsCountContainer: "mb-0" }}
                 />
                 <hr className="flex-1" />
-                <SortDropdown />
+                <SortDropdown sortConfig={sortConfig} />
               </div>
               <AppliedFilters />
             </div>

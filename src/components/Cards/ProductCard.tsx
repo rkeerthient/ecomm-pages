@@ -20,12 +20,12 @@ const ProductCard = (props: CardProps<Product>): JSX.Element => {
           href={result.rawData.slug}
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center hover:opacity-100 opacity-0"
         >
-          <BsEye className="text-amber-700 w-12 h-12" />
+          <BsEye className="text-primary-text-color w-12 h-12" />
         </a>
       </div>
       <footer className="flex justify-between mt-2 items-center font-light">
-        <h5>{result.rawData.name}</h5>
-        <p className="text-amber-700">{result.rawData.c_price}</p>
+        <h5 className="font-normal">{result.rawData.name}</h5>
+        <p className="text-primary-text-color">{result.rawData.c_price}</p>
       </footer>
     </div>
   );

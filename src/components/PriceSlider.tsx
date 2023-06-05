@@ -71,8 +71,8 @@ const PriceSlider = ({ onPriceChange }: any) => {
               max={range[1]}
               onChange={handlePriceChange}
               classes={{
-                root: "!text-gray-600",
-                valueLabel: "!bg-white !text-gray-600",
+                root: "!text-primary-text-color",
+                valueLabel: "!bg-white !text-gray-600 !font-medium",
               }}
             />
             <div className="flex flex-row gap-5 justify-start">
