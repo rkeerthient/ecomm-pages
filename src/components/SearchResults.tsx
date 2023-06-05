@@ -1,4 +1,9 @@
-import { useSearchActions, useSearchState } from "@yext/search-headless-react";
+import {
+  Matcher,
+  SelectableStaticFilter,
+  useSearchActions,
+  useSearchState,
+} from "@yext/search-headless-react";
 import {
   ResultsCount,
   AppliedFilters,
@@ -13,7 +18,8 @@ import { useEffect, useState } from "react";
 import { SortDropdown } from "./SortDropdown";
 import StoreLocator from "./StoreLocator";
 import Loader from "./Loader";
-import MyComponent from "./MyComponent";
+import PriceSlider from "./PriceSlider";
+import { Divider } from "@mui/material";
 type SearchInputs = {
   verticalKey?: string;
   inpClasses: string;
@@ -28,12 +34,38 @@ const SearchResults = ({
 }: SearchInputs) => {
   const searchActions = useSearchActions();
   const [loading, setLoading] = useState(true);
-
+  const [initLoad, setInitLoad] = useState(false);
   useEffect(() => {
     setLoading(true);
     verticalKey && searchActions.setVertical(verticalKey);
     searchActions.executeVerticalQuery().then(() => setLoading(false));
   }, []);
+
+  const handleSliderChange = (priceValues: React.SyntheticEvent[]) => {
+    const selectedFilters: SelectableStaticFilter[] = [];
+    if (priceValues[0] && priceValues[1]) {
+      const selectedFilter:any = {
+        displayName: `$${priceValues[0]} - $${priceValues[1]}`,
+        selected: true,
+        filter: {
+          kind: "fieldValue",
+          fieldId: "price.value",
+          value: {
+            start: {
+              matcher: Matcher.GreaterThanOrEqualTo,
+              value: priceValues[0],
+            },
+            end: { matcher: Matcher.LessThanOrEqualTo, value: priceValues[1] },
+          },
+          matcher: Matcher.Between,
+        },
+      };
+      selectedFilters.push(selectedFilter);
+      searchActions.setStaticFilters(selectedFilters);
+      searchActions.executeVerticalQuery();
+    }
+  };
+
   return (
     <>
       {isLocationType ? (
@@ -45,7 +77,12 @@ const SearchResults = ({
           ) : (
             <div className="flex">
               <div className="w-64 shrink-0 mr-5 mt-4">
-                <MyComponent></MyComponent>
+                {verticalKey === "products" && (
+                  <>
+                    <PriceSlider onPriceChange={handleSliderChange} />
+                    <Divider className="!my-6" />
+                  </>
+                )}
                 <StandardFacets />
               </div>
               <div className="flex-grow">
