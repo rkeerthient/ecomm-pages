@@ -104,18 +104,37 @@ const ProductsPage = () => {
           <div className="w-64 shrink-0 mr-5 mt-4">
             <PriceSlider onPriceChange={handleSliderChange} />
             <Divider className="!my-6" />
-            <StandardFacets />
+            <StandardFacets
+              customCssClasses={{
+                optionLabel: "dark:text-white",
+                titleLabel: "dark:text-white",
+                divider: "dark:bg-white",
+                optionInput:
+                  "dark:text-dark_icon_colors dark:focus:ring-dark_icon_colors",
+              }}
+            />
           </div>
           <div className="flex-grow">
             <div className="flex flex-col items-baseline">
               <div className="flex flex-row gap-2 items-center mb-8 w-full">
                 <ResultsCount
-                  customCssClasses={{ resultsCountContainer: "mb-0" }}
+                  customCssClasses={{
+                    resultsCountContainer:
+                      "mb-0 dark:opacity-100 dark:text-text-light-primary",
+                  }}
                 />
                 <hr className="flex-1" />
                 <SortDropdown sortConfig={sortConfig} />
               </div>
-              <AppliedFilters />
+              <AppliedFilters
+                customCssClasses={{
+                  filterLabel: "dark:text-dark_primary",
+                  appliedFiltersContainer:
+                    "dark:opacity-100 dark:text-text-light-primary",
+                  clearAllButton: "dark:text-dark_icon_colors",
+                  removableFilter: "dark:border-2 dark:border-dark_primary",
+                }}
+              />
             </div>
             <VerticalResults
               CardComponent={ProductCard}
@@ -123,8 +142,20 @@ const ProductsPage = () => {
                 verticalResultsContainer: `grid grid-cols-3 gap-6 max-w-screen-xl`,
               }}
             />
-            <Pagination />
-            <LocationBias />
+            <Pagination
+              customCssClasses={{
+                paginationContainer: "my-6",
+                label: "dark:text-dark_primary",
+                selectedLabel:
+                  "dark:text-text-light-primary dark:border-dark_icon_colors dark:bg-black",
+              }}
+            />
+            <LocationBias
+              customCssClasses={{
+                locationBiasContainer: "dark:!text-dark_primary",
+                button: "dark:!text-dark_icon_colors",
+              }}
+            />
           </div>
         </div>
       )}

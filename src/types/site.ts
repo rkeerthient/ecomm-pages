@@ -22,5 +22,7 @@ export interface ComplexImage {
 export default interface Ce_site {
 	logo?: ComplexImage,
 	name: string,
+	c_logo_dark?: Image,
+	c_logo_white?: Image,
 	id: string,
 }

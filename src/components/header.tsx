@@ -4,17 +4,35 @@ import CartIcon from "./CartIcon";
 import { SearchBar } from "@yext/search-ui-react";
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
+import DarkModeToggle from "./DarkModeToggle";
+import Ce_site from "../types/site";
 
 const Header = ({ _site }: any) => {
-  const { logo } = _site;
+  const { logo, c_logo_white, c_logo_dark }: Ce_site = _site;
+
   const [showSearchBar, setShowSearchBar] = useState(false);
   return (
     <>
       <div className="centered-container">
         <nav className="flex items-center justify-between">
           <div className="flex gap-2 items-center">
-            <img src={logo?.image.url} width={"130"}></img>
-            <div className="flex gap-x-10 text-lg font-light">
+            <div className="w-32 h-32">
+              <img
+                src="https://i.imgur.com/FLnFZAU.png"
+                className="object-cover w-full h-full"
+                alt="Image"
+              />
+            </div>
+            {/* <img
+              src={c_logo_white?.url}
+              className="dark:hidden"
+              style={{ height: "200px", width: "130px" }}
+            ></img>
+            <img
+              src="https://i.imgur.com/FLnFZAU.png"
+              style={{ height: "130px", width: "130px" }}
+            ></img> */}
+            <div className="flex gap-x-10 text-lg font-light dark:text-text-light-secondary dark:font-normal">
               <NavLinks />
             </div>
           </div>
@@ -35,12 +53,12 @@ const Header = ({ _site }: any) => {
               </div>
             ) : (
               <BsSearch
-                className="w-5 h-5"
+                className="w-5 h-5 dark:text-text-light-primary"
                 onClick={() => setShowSearchBar(true)}
               />
             )}
           </div>
-
+          <DarkModeToggle />
           <CartIcon />
         </nav>
       </div>

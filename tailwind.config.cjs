@@ -3,6 +3,7 @@
 const { ComponentsContentPath } = require("@yext/search-ui-react");
 
 module.exports = {
+  darkMode: "class",
   content: [
     "./src/**/*.{ts,tsx}",
     "./lib/**/*.{js,jsx}",
@@ -11,17 +12,20 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "var(--primary-color, #2563eb)",
-        "primary-light": "var(--primary-color-light, #dbeafe)",
-        "primary-dark": "var(--primary-color-dark, #1e40af)",
-        neutral: "var(--neutral-color, #4b5563)",
-        "neutral-light": "var(--neutral-color-light, #9ca3af)",
-        "neutral-dark": "var(--neutral-color-dark, #1f2937)",
-        "button-price-color": "#ab7a5f",
-        "hover-button-color": "#c5a491",
-        "hover-text-color": "#453227",
-        "primary-text-color": "#ab7a5f",
-        "faq-text-color": "#324d67",
+        "bg-light": "#F2F7FA",
+        "bg-dark": "#1C1C1E",
+        "fg-light-1": "#FFFFFF",
+        "fg-dark-1": "#2c2c2e",
+        "fg-light-2": "#2d2d2D",
+        "fg-dark-2": "#48484A",
+        "cta-1-light": "#B87253",
+        "cta-1-dark": "#D96740",
+        "cta-2-light": "#2d2d2d",
+        "cta-2-dark": "#F4F4F4",
+        "text-light-primary": "#FFFFFF",
+        "text-dark-primary": "#000000",
+        "text-light-secondary": "#FFFFFF",
+        "text-dark-secondary": "#000000",
       },
       borderRadius: {
         cta: "var(--cta-border-radius, 1rem)",

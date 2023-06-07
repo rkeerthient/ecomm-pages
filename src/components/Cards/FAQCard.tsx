@@ -12,13 +12,13 @@ const FAQCard = (props: CardProps<Faq>): JSX.Element => {
     <div className="w-full border border-gray-300 p-4 my-4 rounded-md">
       <div className="text-xl">
         <div onClick={() => setIsActive(!isActive)}>
-          <div className="text-primary-text-color text-2xl hover:cursor-pointer">
+          <div className="text-primary-text-color text-2xl hover:cursor-pointer dark:text-dark_primary">
             <span>{result.name}</span>
             <span style={{ float: "right" }}>{isActive ? "-" : "+"}</span>
           </div>
         </div>
         {isActive && (
-          <div className="!text-lg text-faq-text-color mt-3">
+          <div className="!text-lg text-faq-text-color mt-3 dark:text-dark_primary">
             <RTF>{result.rawData.answer}</RTF>
           </div>
         )}

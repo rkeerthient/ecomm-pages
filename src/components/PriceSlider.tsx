@@ -59,10 +59,10 @@ const PriceSlider = ({ onPriceChange }: any) => {
     <>
       {priceValues.length == 2 && range.length == 2 && (
         <div className="my-4 flex flex-col">
-          <div className=" mb-8 text-neutral-dark text-sm font-medium text-left">
+          <div className="dark:text-dark_primary mb-10 text-neutral-dark text-sm font-medium text-left">
             Price
           </div>
-          <div className="  m-auto block w-[85%]">
+          <div className="m-auto block w-[85%]">
             <Slider
               value={priceValues}
               valueLabelDisplay="on"
@@ -71,12 +71,12 @@ const PriceSlider = ({ onPriceChange }: any) => {
               max={range[1]}
               onChange={handlePriceChange}
               classes={{
-                root: "!text-primary-text-color",
+                root: "dark:!text-dark_icon_colors !text-primary-text-color",
                 valueLabel: "!bg-white !text-gray-600 !font-medium",
               }}
             />
-            <div className="flex flex-row gap-5 justify-start">
-              <div className="flex w-1/2 p-1 items-center rounded-md border border-gray-300  text-gray-600 text-sm h-9">
+            <div className="flex flex-row gap-5 justify-start  ">
+              <div className="dark:bg-dark_primary flex w-1/2 p-1 items-center rounded-md border border-gray-300  text-gray-600 text-sm h-9">
                 $
                 <input
                   type="number"
@@ -91,7 +91,7 @@ const PriceSlider = ({ onPriceChange }: any) => {
                   }}
                 />
               </div>
-              <div className="flex w-1/2 p-1 items-center rounded-md border border-gray-300  text-gray-600 text-sm h-9 ">
+              <div className="dark:bg-dark_primary flex w-1/2 p-1 items-center rounded-md border border-gray-300  text-gray-600 text-sm h-9 ">
                 $
                 <input
                   type="number"
