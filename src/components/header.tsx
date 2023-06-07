@@ -14,30 +14,21 @@ const Header = ({ _site }: any) => {
   return (
     <>
       <div className="centered-container">
-        <nav className="flex items-center justify-between">
-          <div className="flex gap-2 items-center">
-            <div className="w-32 h-32">
-              <img
-                src="https://i.imgur.com/FLnFZAU.png"
-                className="object-cover w-full h-full"
-                alt="Image"
-              />
-            </div>
-            {/* <img
-              src={c_logo_white?.url}
-              className="dark:hidden"
-              style={{ height: "200px", width: "130px" }}
-            ></img>
-            <img
-              src="https://i.imgur.com/FLnFZAU.png"
-              style={{ height: "130px", width: "130px" }}
-            ></img> */}
-            <div className="flex gap-x-10 text-lg font-light dark:text-text-light-secondary dark:font-normal">
+        <nav className="flex items-center justify-between py-6">
+          <div className="flex gap-2 items-center w-1/3">
+            <div className="w-full flex gap-2 text-lg flex-row justify-between font-light dark:text-text-light-secondary dark:font-normal">
               <NavLinks />
             </div>
           </div>
+          <div className="w-auto h-10  ">
+            <img
+              src="https://i.imgur.com/02SpJmw.png"
+              className="object-cover w-full h-full"
+              alt="Image"
+            />
+          </div>
           <div
-            className={`flex-1 px-3 mr-0 ${
+            className={`w-1/3 gap-x-28  px-3 mr-0 ${
               !showSearchBar && "flex justify-end"
             }`}
           >
@@ -57,9 +48,8 @@ const Header = ({ _site }: any) => {
                 onClick={() => setShowSearchBar(true)}
               />
             )}
+            <CartIcon />
           </div>
-          <DarkModeToggle />
-          <CartIcon />
         </nav>
       </div>
     </>
@@ -67,3 +57,17 @@ const Header = ({ _site }: any) => {
 };
 
 export default Header;
+{
+  /* <img
+              src={c_logo_white?.url}
+              className="dark:hidden"
+              style={{ height: "200px", width: "130px" }}
+            ></img>
+            <img
+              src="https://i.imgur.com/FLnFZAU.png"
+              style={{ height: "130px", width: "130px" }}
+            ></img> 
+              <DarkModeToggle />;
+            
+            */
+}

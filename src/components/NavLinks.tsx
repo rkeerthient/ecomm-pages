@@ -29,7 +29,7 @@ const NavLinks = () => {
         <div key={link.label}>
           <a
             href={link.url}
-            className="hover:border-b-2 hover:border-button-price-color pb-2"
+            className="hover:border-b-2 hover:border-button-price-color pb-2 text-sm font-bold"
             rel="noreferrer"
           >
             {link.label}

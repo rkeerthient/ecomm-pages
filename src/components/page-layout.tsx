@@ -15,12 +15,12 @@ export interface PageLayoutProps {
 
 const searcher = provideHeadless({ ...searchConfig });
 const PageLayout = ({ children, _site }: PageLayoutProps) => {
-  React.useEffect(() => {
-    document.body.classList.toggle("dark");
-  }, []);
+  // React.useEffect(() => {
+  //   document.body.classList.toggle("dark");
+  // }, []);
   return (
     <SearchHeadlessProvider searcher={searcher}>
-      <div className="min-h-screen bg-bg-light dark:bg-bg-dark">
+      <div className="min-h-screen bg-white dark:bg-bg-dark">
         <Header _site={_site} />
         {children}
         <Footer _site={_site} />
