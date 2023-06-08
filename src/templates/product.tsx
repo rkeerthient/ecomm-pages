@@ -23,7 +23,7 @@ import PageLayout from "../components/page-layout";
 import "../index.css";
 import { useState } from "react";
 import { BsCheck, BsFillBagCheckFill } from "react-icons/bs";
-import Cart from "../components/Cart";
+import Cart from "../components/Cart/Cart";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -154,18 +154,24 @@ const Location: Template<TemplateRenderProps> = ({ document }) => {
   return (
     <>
       <PageLayout _site={_site}>
-        <div className="prodDesc text-gray-600 text-base flex flex-row gap-16 mx-auto justify-center items-center">
-          <div className="w-1/2 flex justify-end">
+        <div className="centered-container text-gray-600 text-base flex flex-row gap-16 mx-auto justify-center items-center">
+          <div className="w-1/2 flex justify-end ">
             <img
               src={primaryPhoto.image.url}
-              className="object-cover rounded-md w-full"
-              style={{ height: "500px" }}
+              className="object-cover w-full h-[550px]"
             />
           </div>
-          <div className="py-20 w-1/2 leading-6">
-            <h2 className="text-4xl font-light text-black mb-3">{name}</h2>
-            <h5 className="text-xl text-primary-text-color mb-3">{c_price}</h5>
-            <p className="leading-8  mb-5">{c_productDescription}</p>
+          <div className=" w-1/2 leading-6">
+            <h2 className="text-4xl font-normal text-heading mb-3">{name}</h2>
+            <h5 className="text-3xl font-light text-blue_cnt mb-3">
+              {c_price}
+            </h5>
+            <p className="leading-8  mb-5">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
+              omnis accusamus quos porro, deserunt exercitationem natus
+              recusandae quo nihil expedita libero assumenda perspiciatis beatae
+              ducimus facere ipsam ipsa. Molestiae, id.
+            </p>
             {c_department && (
               <p className="capitalize grid grid-cols-2 w-2/4 mb-5 ">
                 <span className="font-bold">For : </span> {c_department}

@@ -83,7 +83,7 @@ const Static: Template<ExternalImageRenderData> = ({
     <>
       <PageLayout _site={_site}>
         <div className="centered-container">
-          <div className="space-y-5 my-8">
+          <div className="mb-8">
             <img src={img} alt="" />
             <div className="gap-y-14 justify-center flex flex-col text-center">
               <div className="space-y-4">
@@ -93,15 +93,15 @@ const Static: Template<ExternalImageRenderData> = ({
                 <p className="text-xl text-text">Recently added shirts!</p>
               </div>
               {/* New Arrivals Grid */}
-              <div className="grid grid-cols-4 gap-x-12 gap-y-5 space-y-0">
+              <div className="grid grid-cols-4 gap-x-5 gap-y-12 ">
                 {Array.from({ length: 8 }, (_, index) => (
-                  <div className="flex flex-col space-y-2" key={index}>
+                  <div className="flex flex-col space-y-4" key={index}>
                     <img src={img1} alt="" />
-                    <div className=" text-base">
+                    <div className="text-base gap-y-1 flex flex-col">
                       <p className="text-heading font-medium">
                         Plain White Shirt
                       </p>
-                      <p className="text-text">$29</p>
+                      <p className="text-blue_cnt">$29</p>
                     </div>
                   </div>
                 ))}
@@ -110,9 +110,13 @@ const Static: Template<ExternalImageRenderData> = ({
               <div className="grid grid-cols-4 gap-x-12 gap-y-5 space-y-0 text-base">
                 {Array.from({ length: 4 }, (_, index) => (
                   <div className="flex flex-row gap-4" key={index}>
-                    <FaShippingFast size={25} className="text-xl" />
-                    <div className="flex flex-col text-left">
-                      <div className="font-bold  text-primary">
+                    <FaShippingFast
+                      color="#024E82"
+                      size={25}
+                      className="text-xl"
+                    />
+                    <div className="flex flex-col text-left gap-y-2">
+                      <div className="font-bold  text-heading">
                         Free Shipping
                       </div>
                       <div className="text-text">
@@ -157,15 +161,15 @@ const Static: Template<ExternalImageRenderData> = ({
                 </p>
               </div>
               {/* Product Grid */}
-              <div className="grid grid-cols-4 gap-x-12 gap-y-5 space-y-0">
+              <div className="grid grid-cols-4 gap-x-5 gap-y-12 ">
                 {Array.from({ length: 4 }, (_, index) => (
-                  <div className="flex flex-col space-y-2" key={index}>
+                  <div className="flex flex-col space-y-4" key={index}>
                     <img src={img1} alt="" />
-                    <div className=" text-base">
+                    <div className="text-base gap-y-1 flex flex-col">
                       <p className="text-heading font-medium">
                         Plain White Shirt
                       </p>
-                      <p className="text-text">$29</p>
+                      <p className="text-blue_cnt">$29</p>
                     </div>
                   </div>
                 ))}

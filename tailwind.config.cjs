@@ -30,6 +30,7 @@ module.exports = {
         secondary: "#d6763c",
         heading: "#1d1d1d",
         text: "#555555",
+        blue_cnt: "#024E82",
         "primary-dark": "#14517b",
         "primary-light": "#85a1b3",
         "secondary-dark": "#e1702b",

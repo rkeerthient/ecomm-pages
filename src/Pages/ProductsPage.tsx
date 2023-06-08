@@ -139,7 +139,7 @@ const ProductsPage = () => {
             <VerticalResults
               CardComponent={ProductCard}
               customCssClasses={{
-                verticalResultsContainer: `grid grid-cols-3 gap-6 max-w-screen-xl`,
+                verticalResultsContainer: `grid grid-cols-3 gap-x-5 gap-y-12 text-center`,
               }}
             />
             <Pagination

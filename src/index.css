@@ -18,11 +18,6 @@
   @apply bg-sky-700 hover:bg-sky-800;
 }
 
-.prodDesc {
-  width: 95vw;
-  max-width: 1170px;
-}
-
 .accordion__button:before {
   content: "+";
   float: right;

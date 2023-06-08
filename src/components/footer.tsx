@@ -6,7 +6,7 @@ const Footer = ({ _site }: any) => {
       <div className="centered-container  py-8">
         <div className="flex flex-row justify-between">
           <div className="flex flex-col space-y-6 text-base">
-            <p className="font-bold">Company info</p>
+            <p className="font-semibold uppercase">Company info</p>
             <div className="flex space-y-1 flex-col">
               <div>About Us</div>
               <div>Latest Posts</div>
@@ -15,7 +15,7 @@ const Footer = ({ _site }: any) => {
             </div>
           </div>
           <div className="flex flex-col space-y-6 text-base">
-            <p className="font-bold">Company info</p>
+            <p className="font-semibold uppercase">Company info</p>
             <div className="flex space-y-1 flex-col">
               <div>Tracking</div>
               <div>Order Status</div>
@@ -25,7 +25,7 @@ const Footer = ({ _site }: any) => {
             </div>
           </div>
           <div className="flex flex-col space-y-6 text-base">
-            <p className="font-bold">useful links</p>
+            <p className="font-semibold uppercase">useful links</p>
             <div className="flex space-y-1 flex-col">
               <div>Special Offers</div>
               <div>Gift Cards</div>
@@ -34,7 +34,7 @@ const Footer = ({ _site }: any) => {
             </div>
           </div>
           <div className="flex flex-col space-y-6 text-base">
-            <p className="font-bold">get in the know</p>
+            <p className="font-semibold uppercase">get in the know</p>
             <div className="flex space-y-1 flex-col">
               <div className="pb-3 items-center flex gap-2 ">
                 <input

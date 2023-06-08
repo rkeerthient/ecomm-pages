@@ -1,11 +1,11 @@
 import * as React from "react";
 import NavLinks from "./NavLinks";
-import CartIcon from "./CartIcon";
 import { SearchBar } from "@yext/search-ui-react";
 import { BsSearch } from "react-icons/bs";
 import { useState } from "react";
 import DarkModeToggle from "./DarkModeToggle";
 import Ce_site from "../types/site";
+import CartIcon from "./Cart/CartIcon";
 
 const Header = ({ _site }: any) => {
   const { logo, c_logo_white, c_logo_dark }: Ce_site = _site;
@@ -13,7 +13,7 @@ const Header = ({ _site }: any) => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   return (
     <>
-      <div className="centered-container">
+      <div className="centered-container mb-8">
         <nav className="flex items-center justify-between py-6">
           <div className="flex gap-2 items-center w-1/3">
             <div className="w-full flex gap-2 text-lg flex-row justify-between font-light dark:text-text-light-secondary dark:font-normal">
@@ -28,7 +28,7 @@ const Header = ({ _site }: any) => {
             />
           </div>
           <div
-            className={`w-1/3 gap-x-28  px-3 mr-0 ${
+            className={`w-1/3 gap-x-4  px-3 mr-0 ${
               !showSearchBar && "flex justify-end"
             }`}
           >
@@ -70,4 +70,5 @@ export default Header;
               <DarkModeToggle />;
             
             */
+  
 }
