@@ -23,11 +23,12 @@ import Loader from "../components/Loader";
 
 const ProductsPage = () => {
   const searchActions = useSearchActions();
-  const [loading, setLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
   React.useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     searchActions.setVertical("products");
-    searchActions.executeVerticalQuery().then(() => setLoading(false));
+    console.log("inn");
+    searchActions.executeVerticalQuery().then((res) => console.log(res));
   }, []);
 
   const sortConfig: Record<string, { label: string; sortBy: SortBy }> = {
@@ -102,7 +103,7 @@ const ProductsPage = () => {
       ) : (
         <div className="flex">
           <div className="w-64 shrink-0 mr-5 mt-4">
-            <PriceSlider onPriceChange={handleSliderChange} />
+            {/* <PriceSlider onPriceChange={handleSliderChange} /> */}
             <Divider className="!my-6" />
             <StandardFacets
               customCssClasses={{

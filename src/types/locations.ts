@@ -193,6 +193,21 @@ export interface C_tertiaryCTA {
 	link?: string,
 }
 
+export interface Bios {
+	label?: string,
+	ids?: string[],
+}
+
+export interface Menus {
+	label?: string,
+	ids?: string[],
+}
+
+export interface ProductLists {
+	label?: string,
+	ids?: string[],
+}
+
 export enum Type_2 {
 	NONE = "None",
 	BOOK_NOW = "Book Now",
@@ -243,7 +258,8 @@ export interface OrderUrl {
 }
 
 export enum PaymentOptions {
-	ALIPAY = "AliPay",
+	AFTERPAY = "Afterpay",
+	ALIPAY = "Alipay",
 	AMERICANEXPRESS = "American Express",
 	ANDROIDPAY = "Google Pay",
 	APPLEPAY = "Apple Pay",
@@ -252,6 +268,7 @@ export enum PaymentOptions {
 	BACS = "BACS",
 	BANCONTACT = "Bancontact",
 	BANKDEPOSIT = "Bank Deposit",
+	BANKPAY = "Bank Pay",
 	BGO = "Bank/Giro Overschrijving",
 	BITCOIN = "Bitcoin",
 	Bar = "Bargeld",
@@ -260,6 +277,7 @@ export enum PaymentOptions {
 	CCS = "CCS",
 	CHECK = "Check",
 	CONB = "Contactloos betalen",
+	CONTACTLESSPAYME = "Contactless Payment",
 	CVVV = "Cadeaubon/VVV bon",
 	DEBITNOTE = "Debit Note",
 	DINERSCLUB = "Diners Club",
@@ -271,9 +289,11 @@ export enum PaymentOptions {
 	EMV = "Elektronische Maaltijdcheques",
 	FINANCING = "Financing",
 	GOPAY = "GoPay",
+	HAYAKAKEN = "Hayakaken",
 	HEBAG = "He-Bag",
 	IBOD = "iBOD",
 	ICCARDS = "IC Cards",
+	ICOCA = "Icoca",
 	ID = "iD",
 	IDEAL = "iDeal",
 	INCA = "Incasso",
@@ -281,36 +301,44 @@ export enum PaymentOptions {
 	JCB = "JCB",
 	JCoinPay = "J−Coin Pay",
 	JKOPAY = "JKO Pay",
+	KITACA = "Kitaca",
 	KLA = "Klantenkaart",
 	KLARNA = "Klarna",
 	LINEPAY = "LINE Pay",
 	MAESTRO = "Maestro",
+	MANACA = "Manaca",
 	MASTERCARD = "MasterCard",
 	MIPAY = "Mi Pay",
 	MONIZZE = "Monizze",
+	MPAY = "MPay",
 	Manuelle_Lastsch = "Manuelle Lastschrift",
 	Merpay = "メルPay",
 	NANACO = "nanaco",
 	NEXI = "Nexi",
+	NIMOCA = "Nimoca",
 	OREM = "Onder Rembours",
+	PASMO = "Pasmo",
 	PAYBACKPAY = "Payback Pay",
 	PAYBOX = "Paybox",
 	PAYCONIQ = "Payconiq",
 	PAYPAL = "PayPal",
 	PAYPAY = "PayPay",
 	PAYSEC = "PaySec",
+	PIN = "PIN",
 	POSTEPAY = "Postepay",
 	QRCODE = "QR Code Payment",
 	QUICPAY = "QUICPay",
 	RAKUTENEDY = "Rakuten Edy",
-	RakutenPay = "楽天Pay",
+	RAKUTENPAY = "楽天Pay",
 	SAMSUNGPAY = "Samsung Pay",
 	SODEXO = "Sodexo",
+	SUGOCA = "Sugoca",
+	SUICA = "Suica",
 	SWISH = "Swish",
-	TEST = "Test",
-	TEST_2 = "rajeev",
 	TICKETRESTAURANT = "Ticket Restaurant",
+	TOICA = "Toica",
 	TRAVELERSCHECK = "Traveler's Check",
+	TSCUBIC = "TS CUBIC",
 	TWINT = "Twint",
 	UNIONPAY = "China UnionPay",
 	VEV = "Via een verzekering",
@@ -322,9 +350,10 @@ export enum PaymentOptions {
 	WAON = "WAON",
 	WECHATPAY = "WeChat Pay",
 	WIRETRANSFER = "Wire Transfer",
-	YuchoPay = "ゆうちょPay",
+	Yucho_Pay = "ゆうちょPay",
+	ZELLE = "Zelle",
 	AuPay = "auPay",
-	DBarai = "d払い",
+	DBarai = "d払い ",
 	Überweisung = "Banküberweisung",
 }
 
@@ -379,22 +408,6 @@ export interface ReservationUrl {
 
 export interface ServiceArea {
 	places?: string[],
-}
-
-export enum Presentation {
-	BUTTON = "Button",
-	LINK = "Link",
-}
-
-export interface UberLink {
-	text?: string,
-	presentation: Presentation,
-}
-
-export interface UberTripBranding {
-	text: string,
-	url: string,
-	description: string,
 }
 
 export interface WebsiteUrl {
@@ -471,7 +484,6 @@ export default interface Location {
 	slug?: string,
 	takeoutHours?: Hours,
 	what3WordsAddress?: string,
-	yelpLinkedAccount?: any,
 	yelpWebsiteOverride?: string,
 	additionalHoursText?: string,
 	address: Address,
@@ -492,9 +504,11 @@ export default interface Location {
 	c_tertiaryCTA?: C_tertiaryCTA,
 	firstPartyReviewPage?: any,
 	reviewGenerationUrl?: any,
-	defaultReviewInviteTemplate?: any,
 	displayCoordinate?: Coordinate,
 	dropoffCoordinate?: Coordinate,
+	bios?: Bios,
+	menus?: Menus,
+	productLists?: ProductLists,
 	emails?: string[],
 	facebookOverrideCity?: string,
 	facebookCoverPhoto?: Image,
@@ -504,9 +518,7 @@ export default interface Location {
 	facebookLinkedAccount?: any,
 	facebookName?: string,
 	facebookPageUrl?: string,
-	facebookParentPageId?: string,
 	facebookProfilePhoto?: Image,
-	facebookStoreId?: string,
 	facebookVanityUrl?: string,
 	fax?: any,
 	featuredMessage?: FeaturedMessage,
@@ -556,9 +568,6 @@ export default interface Location {
 	tollFreePhone?: any,
 	ttyPhone?: any,
 	twitterHandle?: string,
-	uberClientId?: string,
-	uberLink?: UberLink,
-	uberTripBranding?: UberTripBranding,
 	walkableCoordinate?: Coordinate,
 	websiteUrl?: WebsiteUrl,
 	yearEstablished?: number,

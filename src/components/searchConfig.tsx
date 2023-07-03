@@ -1,11 +1,11 @@
 import { CloudRegion, Environment } from "@yext/search-headless-react";
 
 const searchConfig = {
-  apiKey: "2d586133bf1ad30c089c5869ca2376cf",
+  apiKey: "9ebe3b257380322e63523d38d8e5f206",
   experienceKey: "answers",
   locale: "en",
   cloudRegion: CloudRegion.US,
-  environment: Environment.SANDBOX,
+  environment: Environment.PROD,
 };
 
 export default searchConfig;

@@ -10,7 +10,6 @@ import CartIcon from "./Cart/CartIcon";
 const Header = ({ _site }: any) => {
   const { logo, c_logo_white, c_logo_dark }: Ce_site = _site;
 
-  const [showSearchBar, setShowSearchBar] = useState(false);
   return (
     <>
       <div className="centered-container mb-8">
@@ -27,27 +26,10 @@ const Header = ({ _site }: any) => {
               alt="Image"
             />
           </div>
-          <div
-            className={`w-1/3 gap-x-4  px-3 mr-0 ${
-              !showSearchBar && "flex justify-end"
-            }`}
-          >
-            {showSearchBar ? (
-              <div
-                className={`transition duration-500 ${
-                  showSearchBar
-                    ? " transform scale-100 flex-1 opacity-100 "
-                    : "opacity-0 scale-0"
-                }`}
-              >
-                <SearchBar customCssClasses={{ searchBarContainer: "mb-0" }} />
-              </div>
-            ) : (
-              <BsSearch
-                className="w-5 h-5 dark:text-text-light-primary"
-                onClick={() => setShowSearchBar(true)}
-              />
-            )}
+          <div className={`w-1/3 gap-x-4  px-3 mr-0 `}>
+            <div>
+              <SearchBar customCssClasses={{ searchBarContainer: "mb-0" }} />
+            </div>
             <CartIcon />
           </div>
         </nav>
@@ -70,5 +52,4 @@ export default Header;
               <DarkModeToggle />;
             
             */
-  
 }

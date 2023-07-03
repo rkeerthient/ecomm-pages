@@ -83,7 +83,7 @@ const Static: Template<ExternalImageRenderData> = ({
     <>
       <PageLayout _site={_site}>
         <div className="centered-container">
-          <div className="mb-8">
+          <div className="mb-8 space-y-16">
             <img src={img} alt="" />
             <div className="gap-y-14 justify-center flex flex-col text-center">
               <div className="space-y-4">

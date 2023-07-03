@@ -24,6 +24,7 @@ import "../index.css";
 import { useState } from "react";
 import { BsCheck, BsFillBagCheckFill } from "react-icons/bs";
 import Cart from "../components/Cart/Cart";
+import RTF from "../components/RTF";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -45,14 +46,12 @@ export const config: TemplateConfig = {
       "c_color",
       "c_department",
       "c_fabric",
-      "c_fit",
-      "c_price",
       "c_productCategory",
-      "c_size",
       "c_sleeveLength",
       "c_subtitle",
       "c_type",
       "c_productDescription",
+      "richTextDescription",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -128,9 +127,9 @@ const Location: Template<TemplateRenderProps> = ({ document }) => {
     c_cCategory,
     c_color,
     c_department,
-    c_price,
     c_productCategory,
     c_productDescription,
+    richTextDescription,
   } = document;
   const [amount, setAmount] = useState(1);
 
@@ -163,14 +162,11 @@ const Location: Template<TemplateRenderProps> = ({ document }) => {
           </div>
           <div className=" w-1/2 leading-6">
             <h2 className="text-4xl font-normal text-heading mb-3">{name}</h2>
-            <h5 className="text-3xl font-light text-blue_cnt mb-3">
+            {/* <h5 className="text-3xl font-light text-blue_cnt mb-3">
               {c_price}
-            </h5>
+            </h5> */}
             <p className="leading-8  mb-5">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit
-              omnis accusamus quos porro, deserunt exercitationem natus
-              recusandae quo nihil expedita libero assumenda perspiciatis beatae
-              ducimus facere ipsam ipsa. Molestiae, id.
+              <RTF>{richTextDescription}</RTF>
             </p>
             {c_department && (
               <p className="capitalize grid grid-cols-2 w-2/4 mb-5 ">
